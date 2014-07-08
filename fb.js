@@ -355,8 +355,8 @@
 
             result = {};
             body = body.split('&');
-            for(var key=0, l=body.length; key<l; key++) {
-                split = body[key].split('=');
+            body.forEach(function(b) {
+                split = b.split('=');
                 if(split.length === 2) {
                     value = split[1];
                     if(!isNaN(value)) {
@@ -365,8 +365,8 @@
                         result[split[0]] = value;
                     }
                 }
-            }
-
+            });
+            
             return result;
         };
 
